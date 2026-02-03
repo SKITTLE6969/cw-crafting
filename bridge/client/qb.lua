@@ -98,9 +98,7 @@ function getCraftingLevel(skill)
         return exports['cw-rep']:getCurrentLevel(skill or Config.CraftingSkillName) or 0
     else
         local PlayerData = QBCore.Functions.GetPlayerData()
-        if not PlayerData or PlayerData.metadata.craftingrep then print('Could not find player data') return 0 end
-        if not PlayerData.metadata.craftingrep then return 0 end
-
+        if not PlayerData or not PlayerData.metadata.craftingrep then print('Could not find player data') return 0 end
         return math.ceil(PlayerData.metadata.craftingrep / 100) or 0
     end
 end
